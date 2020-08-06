@@ -1,0 +1,45 @@
+{
+  "name": "vue-crm",
+  "version": "1.0.0",
+  "description": "CRM system",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "firebase": "^7.17.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-pwa": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eir73/vue-crm.git"
+  },
+  "keywords": [
+    "Vuejs",
+    "CLI",
+    "Vue3"
+  ],
+  "author": "Daniil Kholodkov <daniil.eir73@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eir73/vue-crm/issues"
+  },
+  "homepage": "https://github.com/eir73/vue-crm#readme"
+}
