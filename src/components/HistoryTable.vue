@@ -16,7 +16,7 @@
             v-for="(record, index) of records"
             :key="record.id"
         >
-            <td>{{index + 1}}</td>
+            <td>{{ ( page - 1 ) * pageSize + index + 1}}</td>
             <td>{{ record.amount | currency }}</td>
             <td>{{ record.date | date('datetime') }}</td>
             <td>{{ record.categoryName }}</td>
@@ -47,6 +47,14 @@ export default {
         records: {
             required: true,
             type: Array
+        },
+        page: {
+            required: true,
+            type: Number
+        },
+        pageSize: {
+            required: true,
+            type: Number
         }
     }
 }
