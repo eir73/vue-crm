@@ -1,23 +1,50 @@
 <template>
   <div>
-    <div>
-      <div class="breadcrumb-wrap">
-        <a href="/history" class="breadcrumb">История</a>
-        <a class="breadcrumb">Расход</a>
-      </div>
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card red">
-            <div class="card-content white-text">
-              <p>Описание:</p>
-              <p>Сумма:</p>
-              <p>Категория:</p>
-
-              <small>12.12.12</small>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="page-title">
+      <h3>История записей</h3>
     </div>
+
+    <div class="history-chart">
+      <canvas></canvas>
+    </div>
+
+    <Loader v-if="loading"/> 
+
+    <p class="center" v-else-if="!records.length">
+      Записей пока нет.
+      <router-link to="/record" > Добавить</router-link>
+    </p>
+
+    <section v-else>
+      <HistoryTable :records="records"/>
+    </section>
   </div>
 </template>
+
+<script>
+import HistoryTable from '@/components/HistoryTable'
+
+export default {
+  name: 'history',
+    data: () => ({
+      loading: true,
+      records: [],
+      categories: []
+  }),
+  async mounted() {
+    //this.records = await this.$store.dispatch('fetchRecords')
+    const records = await this.$store.dispatch('fetchRecords')
+    this.categories = await this.$store.dispatch('fetchCategories')
+    this.records = records.map(record => ({
+      ...record,
+      categoryName: this.categories.find(c => c.id === record.categoryId).title,
+      typeInfo: record.type === 'income' ? { class: 'green', text: 'Доход' } : { class: 'red', text: 'Расход' },
+    }))
+    
+    this.loading = false
+  },
+  components: {
+    HistoryTable
+  }
+}
+</script>

@@ -41,7 +41,6 @@ export default {
   },
   async mounted() {
     const records = await this.$store.dispatch('fetchRecords')
-    console.log(records)
     const categories = await this.$store.dispatch('fetchCategories')
 
     this.categories = categories.map(c => {
