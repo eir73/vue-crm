@@ -7,19 +7,19 @@
 
         <form @submit.prevent="submitHandler">
             <div class="input-field">
-            <input 
-                id="name" 
-                type="text" 
-                v-model="title"
-                :class="{invalid: $v.title.$dirty && !$v.title.required}"
-            />
-            <label for="name">Название</label>
-            <span  
-                class="helper-text invalid"
-                v-if=" $v.title.$dirty && !$v.title.required"
-            >
-                Введите название категории
-            </span>
+                <input 
+                    id="name" 
+                    type="text" 
+                    v-model="title"
+                    :class="{invalid: $v.title.$dirty && !$v.title.required}"
+                />
+                <label for="name">Название</label>
+                <span  
+                    class="helper-text invalid"
+                    v-if=" $v.title.$dirty && !$v.title.required"
+                >
+                    Введите название категории
+                </span>
             </div>
 
             <div class="input-field">
