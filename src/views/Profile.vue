@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Профиль</h3>
+      <h3>{{'ProfileTitle' | localize}}</h3>
     </div>
 
     <form class="form" @submit.prevent="submitHandler">
@@ -56,7 +56,7 @@ export default {
   },
   mounted() {
     this.name = this.info.name
-    this.isRuLocale = this.info.locale === 'ru'
+    this.isRuLocale = this.info.locale === 'ru-RU'
     setTimeout(M.updateTextFields, 0)
   },
   methods: {
@@ -70,7 +70,7 @@ export default {
       try {
         await this.updateInfo({
           name: this.name,
-          locale: this.isRuLocale ? 'ru' : 'en'
+          locale: this.isRuLocale ? 'ru-RU' : 'en-US'
         })
       } catch (e) {
         throw e
