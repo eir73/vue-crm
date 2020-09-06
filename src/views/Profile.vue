@@ -12,11 +12,11 @@
           v-model.trim="name"
           :class="{invalid: $v.name.$dirty && !$v.name.required}"
         />
-        <label for="name">Имя</label>
+        <label for="name">{{'Name' | localize}}</label>
         <small 
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
-        >Введите имя</small>
+        >{{ 'Message_EnterName' | localize }}</small>
       </div>
 
       <div class="switch">
@@ -29,7 +29,7 @@
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        Обновить
+        {{'Update' | localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>
@@ -47,6 +47,11 @@ import {mapGetters, mapActions} from 'vuex'
 import {required} from 'vuelidate/lib/validators' 
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true

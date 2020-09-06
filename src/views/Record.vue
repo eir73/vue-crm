@@ -11,7 +11,7 @@
       <router-link to="/categories">{{'AddFirst'|localize}}</router-link>
     </p>
 
-    <form class="form" v-else @submit.prevent="handleSubmit">
+    <form class="form" v-else @submit.prevent="submitHandler">
       <div class="input-field">
         <select ref="select" v-model="category">
           <option v-for="c in categories" :key="c.id" :value="c.id">{{c.title}}</option>
